@@ -58,10 +58,16 @@
                     <label for="firstname" class="form-label">First Name</label>
                     <div class="input-group has-validation">
                         <span class="input-group-text" id="firstnameicon"><i class="bi bi-person"></i></span>
-                        <input type="text" class="form-control" id="firstname" required
-                            pattern="[A-Za-z]+" 
-                            oninput="this.value = this.value.replace(/[^A-Za-z]/g,'')">
-                        <div class="invalid-feedback">First name is required (letters only)</div>
+                        <input 
+                            type="text"
+                            class="form-control"
+                            id="firstname"
+                            required
+                            pattern="[A-Za-z ]+"
+                            oninput="this.value = this.value.replace(/[^A-Za-z ]/g,'')"
+                        >
+
+                        <div class="invalid-feedback">First name is required</div>
                     </div>
                 </div>
 
@@ -70,10 +76,15 @@
                     <label for="lastname" class="form-label">Last Name</label>
                     <div class="input-group has-validation">
                         <span class="input-group-text" id="lastnameicon"><i class="bi bi-person"></i></span>
-                        <input type="text" class="form-control" id="lastname" required
-                            pattern="[A-Za-z]+" 
-                            oninput="this.value = this.value.replace(/[^A-Za-z]/g,'')">
-                        <div class="invalid-feedback">Last Name is required (letters only)</div>
+                        <input 
+                            type="text"
+                            class="form-control"
+                            id="firstname"
+                            required
+                            pattern="[A-Za-z ]+"
+                            oninput="this.value = this.value.replace(/[^A-Za-z ]/g,'')"
+                        >
+                        <div class="invalid-feedback">Last Name is required</div>
                     </div>
                 </div>
 
