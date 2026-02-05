@@ -51,7 +51,7 @@
                 <div class="col-12"><hr class="my-4"></div> 
 
 
-            <form class="row g-3 needs-validation" novalidate>
+            <form action="https://formsubmit.co/samueljamescinco@gmail.com" method="POST" class="row g-3 needs-validation" novalidate>
 
                 <!-- First Name -->
                 <div class="col-md-4">
@@ -62,6 +62,7 @@
                             type="text"
                             class="form-control"
                             id="firstname"
+                            name="firstname"
                             required
                             pattern="[A-Za-z ]+"
                             oninput="this.value = this.value.replace(/[^A-Za-z ]/g,'')"
@@ -80,6 +81,7 @@
                             type="text"
                             class="form-control"
                             id="middlename"
+                            name="middlename"
                             required
                             pattern="[A-Za-z ]+"
                             oninput="this.value = this.value.replace(/[^A-Za-z ]/g,'')"
@@ -96,7 +98,8 @@
                         <input 
                             type="text"
                             class="form-control"
-                            id="firstname"
+                            id="lastname"
+                            name="lastname"
                             required
                             pattern="[A-Za-z ]+"
                             oninput="this.value = this.value.replace(/[^A-Za-z ]/g,'')"
@@ -110,7 +113,7 @@
                     <label for="username" class="form-label">Username</label>
                     <div class="input-group has-validation">
                         <span class="input-group-text" id="usernameicon"><i class="bi bi-person-circle"></i></span>
-                        <input type="text" class="form-control" id="username" required>
+                        <input type="text" class="form-control" id="username" name="username" required>
                         <div class="invalid-feedback">Username is required</div>
                     </div>
                 </div>
@@ -123,6 +126,7 @@
                         <input type="tel"
                             class="form-control"
                             id="phone"
+                            name="phone"
                             pattern="[0-9]{11}"
                             maxlength="11"
                             required
@@ -138,7 +142,7 @@
                     <label for="email" class="form-label">Email</label>
                     <div class="input-group has-validation">
                         <span class="input-group-text" id="email"><i class="bi bi-envelope-fill"></i></span>
-                        <input type="email" class="form-control" id="email" required>
+                        <input type="email" class="form-control" id="email" name="email" required>
                         <div class="invalid-feedback">Enter a valid email address.</div>
                     </div>
                 </div>
@@ -151,7 +155,7 @@
                     <label for="gender" class="form-label">Gender</label>
                     <div class="input-group has-validation">
                         <span class="input-group-text" id="gender"><i class="bi bi-gender-ambiguous"></i></span>
-                        <select class="form-select" id="gender" required>
+                        <select class="form-select" id="gender" name="gender" required>
                         <option value="">Select</option>
                         <option>Male</option>
                         <option>Female</option>
@@ -165,7 +169,7 @@
                     <label for="birthday" class="form-label">Date of Birth</label>
                     <div class="input-group has-validation">
                         <span class="input-group-text" id="birthday"><i class="bi bi-calendar-event-fill"></i></span>
-                        <input type="date" class="form-control" id="dob" required>
+                        <input type="date" class="form-control" id="dob" name="dob" required>
                         <div class="invalid-feedback">Please select your birth date.</div>
                     </div>
                 </div>
@@ -178,19 +182,8 @@
                     <label for="country" class="form-label">Country</label>
                     <div class="input-group has-validation">
                         <span class="input-group-text" id="country"><i class="bi bi-globe"></i></span>
-                        <input class="form-control"
-                            list="countryList"
-                            id="country"
-                            required
-                        >
-
-                        <datalist id="countryList">
-                        <option value="Philippines">
-                        <option value="Japan">
-                        <option value="United States">
-                        <option value="South Korea">
-                        </datalist>
-
+                        <input type="text" class="form-control" list="countryList" id="country" name="country" required>
+                        <datalist id="countryList"></datalist>
                         <div class="invalid-feedback">Please select a country.</div>
 
                     </div>
@@ -201,7 +194,7 @@
                     <label for="homeaddress" class="form-label">Home Address</label>
                     <div class="input-group has-validation">
                         <span class="input-group-text" id="homeaddress"><i class="bi bi-geo-alt"></i></span>
-                        <input type="text" class="form-control" id="homeaddress" required>
+                        <input type="text" class="form-control" id="homeaddress" name="homeaddress" required>
                         <div class="invalid-feedback">Home Address is required</div>
                     </div>
                 </div>
@@ -211,7 +204,7 @@
                     <label for="officeaddress" class="form-label">Office Address</label>
                     <div class="input-group has-validation">
                         <span class="input-group-text" id="officeaddress"><i class="bi bi-geo-alt"></i></span>
-                        <input type="text" class="form-control" id="officeaddress" required>
+                        <input type="text" class="form-control" id="officeaddress" name="officeaddress" required>
                         <div class="invalid-feedback">Office Address is required</div>
                     </div>
                 </div>
@@ -221,7 +214,7 @@
                     <label for="companyname" class="form-label">Company Name</label>
                     <div class="input-group has-validation">
                         <span class="input-group-text" id="companyname"><i class="bi bi-building"></i></span>
-                        <input type="text" class="form-control" id="companyname" required>
+                        <input type="text" class="form-control" id="companyname" name="companyname" required>
                         <div class="invalid-feedback">Company Name is required</div>
                     </div>
                 </div>
@@ -238,6 +231,7 @@
                             type="password"
                             class="form-control"
                             id="password"
+                            name="password"
                             required
                         >
                         <button
@@ -263,6 +257,7 @@
                         <input type="password"
                             class="form-control"
                             id="confirmPassword"
+                            name="confirmPassword"
                             required>
                         <div class="invalid-feedback">
                         Passwords do not match.
@@ -273,7 +268,7 @@
                 <!-- Terms and Conditions -->
                 <div class="col-12">
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="terms" required>
+                        <input class="form-check-input" type="checkbox" id="terms" name="terms" required>
                         <label class="form-check-label" for="terms"> Agree to terms and conditions </label>
                         <div class="invalid-feedback"> You must agree before submitting. </div>
                     </div>
@@ -282,7 +277,7 @@
                 <!-- updates -->
                 <div class="col-12">
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="updates">
+                        <input class="form-check-input" type="checkbox" id="updates" name="updates">
                         <label class="form-check-label" for="updates"> Receive best offers and updates </label>
                     </div>
                 </div>

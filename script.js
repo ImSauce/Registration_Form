@@ -122,3 +122,26 @@ document.addEventListener("DOMContentLoaded", () => {
         setTimeout(() => overlay.remove(), 1000);
     });
 });
+
+
+
+
+//------------------------- countries selection
+document.addEventListener("DOMContentLoaded", () => {
+  const list = document.getElementById("countryList");
+
+  fetch("https://restcountries.com/v3.1/all")
+    .then(res => res.json())
+    .then(data => {
+      const countries = data
+        .map(c => c.name.common)
+        .sort();
+
+      countries.forEach(country => {
+        const option = document.createElement("option");
+        option.value = country;
+        list.appendChild(option);
+      });
+    })
+    .catch(err => console.error(err));
+});
