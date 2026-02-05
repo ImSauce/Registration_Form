@@ -71,6 +71,23 @@
                     </div>
                 </div>
 
+                <!-- Middle Name -->
+                <div class="col-md-4">
+                    <label for="middlename" class="form-label">Middle Name</label>
+                    <div class="input-group has-validation">
+                        <span class="input-group-text" id="middlenameicon"><i class="bi bi-person"></i></span>
+                        <input 
+                            type="text"
+                            class="form-control"
+                            id="middlename"
+                            required
+                            pattern="[A-Za-z ]+"
+                            oninput="this.value = this.value.replace(/[^A-Za-z ]/g,'')"
+                        >
+                        <div class="invalid-feedback">Middle name is required</div>
+                    </div>
+                </div>
+
                 <!-- Last Name -->
                 <div class="col-md-4">
                     <label for="lastname" class="form-label">Last Name</label>
