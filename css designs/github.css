@@ -1,0 +1,182 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background-color: #0d1117; /* GitHub dark background */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    color: #c9d1d9; /* light gray text */
+}
+
+/* Login Card */
+.login-card {
+    background: #161b22; /* slightly lighter dark card */
+    width: 100%;
+    max-width: 1100px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    padding: 2rem 3rem;
+    animation: fadeIn 0.6s ease;
+}
+
+/* Card Heading */
+.login-card h2 {
+    font-weight: 700;
+    color: #c9d1d9; /* light gray */
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+/* Input Fields */
+.form-control {
+    border: 1px solid #30363d; /* dark gray border */
+    border-radius: 8px;
+    padding: 0.65rem 0.75rem;
+    background-color: #0d1117; /* match dark background */
+    color: #c9d1d9;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.form-control:focus {
+    border-color: #238636; /* GitHub green focus */
+    box-shadow: 0 0 0 2px rgba(35, 134, 54, 0.3);
+    outline: none;
+    background-color: #161b22;
+    color: #c9d1d9;
+}
+
+/* Input Icons */
+.input-group-text {
+    background-color: #0d1117;
+    border: 1px solid #30363d;
+    border-radius: 8px 0 0 8px;
+    color: #8b949e;
+}
+
+/* Password toggle button */
+.input-group .btn {
+    border-radius: 0 8px 8px 0;
+    background-color: #0d1117;
+    border: 1px solid #30363d;
+    color: #c9d1d9;
+    transition: background 0.15s ease, transform 0.15s ease;
+}
+
+.input-group .btn:hover {
+    background-color: #21262d;
+    transform: translateY(-1px);
+}
+
+/* Valid / Invalid */
+.is-valid {
+    border-color: #2ea44f !important; /* GitHub green */
+}
+
+.is-invalid {
+    border-color: #f85149 !important; /* GitHub red */
+}
+
+.invalid-feedback {
+    font-size: 0.75rem;
+    color: #f85149;
+}
+
+/* Buttons */
+.btn-primary {
+    padding: 0.75rem 1rem;
+    font-weight: 500;
+    border-radius: 8px;
+    background-color: #238636; /* GitHub green button */
+    border: none;
+    color: #ffffff;
+    transition: background 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.btn-primary:hover {
+    background-color: #2ea44f;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+}
+
+/* Checkbox */
+.form-check-input:checked {
+    background-color: #238636;
+    border-color: #238636;
+}
+
+.form-check-label {
+    cursor: pointer;
+    user-select: none;
+}
+
+/* Separator Lines */
+hr {
+    border: 0;
+    border-top: 1px solid #30363d;
+    margin: 2rem 0;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .login-card {
+        padding: 2rem 1.5rem;
+    }
+}
+
+/* Disable text selection globally except inputs */
+body {
+    user-select: none;
+    caret-color: transparent;
+}
+
+input,
+textarea {
+    user-select: text;
+    caret-color: auto;
+}
+
+
+
+
+/* Dark style for select dropdowns */
+.form-select {
+    background-color: #0d1117; /* match card background */
+    color: #c9d1d9; /* light gray text */
+    border: 1px solid #30363d; /* dark border */
+    border-radius: 8px;
+    padding: 0.5rem 0.75rem;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+    appearance: none; /* remove default arrow in some browsers */
+}
+
+.form-select:focus {
+    border-color: #238636; /* GitHub green focus */
+    box-shadow: 0 0 0 2px rgba(35, 134, 54, 0.3);
+    outline: none;
+    background-color: #161b22; /* slightly lighter when focused */
+    color: #c9d1d9;
+}
+
+/* Optional: style the dropdown arrow icon */
+.form-select::after {
+    color: #8b949e;
+}
