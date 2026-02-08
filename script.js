@@ -1,32 +1,24 @@
-
 //--------------- Form Validation Green or Red indicator
 document.querySelectorAll('.form-control, .form-select').forEach(input => {
-
     input.addEventListener('input', () => {
         // if empty -> no color
         if (input.value.trim() === '') {
-        input.classList.remove('is-valid', 'is-invalid')
-        return
+            input.classList.remove('is-valid', 'is-invalid')
+            return
         }
 
         // if not empty -> check validity
         if (input.checkValidity()) {
-        input.classList.add('is-valid')
-        input.classList.remove('is-invalid')
+            input.classList.add('is-valid')
+            input.classList.remove('is-invalid')
         } else {
-        input.classList.add('is-invalid')
-        input.classList.remove('is-valid')
+            input.classList.add('is-invalid')
+            input.classList.remove('is-valid')
         }
     })
-
 })
 
-
-
-
-
-
-//--------------- Password Toggle
+// --- Password toggle
 function togglePassword() {
     const passwordInput = document.getElementById("password");
     const icon = document.getElementById("toggleIcon");
@@ -40,8 +32,7 @@ function togglePassword() {
     }
 }
 
-
-//--------------- Confirm Password
+// --- Real-time password match check
 const password = document.getElementById("password");
 const confirmPassword = document.getElementById("confirmPassword");
 
@@ -60,88 +51,67 @@ function checkPasswordMatch() {
     }
 }
 
-// check while typing
 password.addEventListener("input", checkPasswordMatch);
 confirmPassword.addEventListener("input", checkPasswordMatch);
 
+// --- Form submit: combined all previous handlers safely
+const form = document.getElementById("contactForm");
 
+form.addEventListener("submit", function (e) {
+    // first, check native validity (required fields, patterns, etc.)
+    if (!form.checkValidity()) {
+        e.preventDefault();
+        e.stopPropagation();
+        form.classList.add('was-validated');
+        return;
+    }
 
+    // check password match
+    if (password.value !== confirmPassword.value) {
+        e.preventDefault();
+        e.stopPropagation();
+        confirmPassword.classList.add("is-invalid");
+        confirmPassword.classList.remove("is-valid");
+        confirmPassword.focus();
+        form.classList.add('was-validated');
+        return;
+    }
 
-
-
-
-//-------------- redirect to sucess.html when clicking the submit button
-document.querySelector("form").addEventListener("submit", function (e) {
-  if (!this.checkValidity()) return;
-
-  e.preventDefault(); // stop actual submit
-  window.location.href = "success.html";
+    // all valid -> redirect
+    e.preventDefault();
+    window.location.href = "success.html";
 });
-
-
-
-
-
-
-//-------------------- button click on register and checks if all fields are filled correctly
-(() => {
-    'use strict'
-
-    const forms = document.querySelectorAll('.needs-validation')
-
-    Array.from(forms).forEach(form => {
-        form.addEventListener('submit', event => {
-
-        if (!form.checkValidity()) {
-            event.preventDefault()
-            event.stopPropagation()
-        }
-
-        form.classList.add('was-validated')
-
-        }, false)
-    })
-})()
-
-
-
-
-
-
 
 //------------------------- startup Overlay
 document.addEventListener("DOMContentLoaded", () => {
     const overlay = document.getElementById("click-overlay");
     const mainContent = document.querySelector(".main-content");
 
-    overlay.addEventListener("click", () => {
-        // fade out 
-        overlay.classList.add("fade-out");
-
-        // remove overlay from DOM after animation
-        setTimeout(() => overlay.remove(), 1000);
-    });
+    if (overlay) {
+        overlay.addEventListener("click", () => {
+            overlay.classList.add("fade-out");
+            setTimeout(() => overlay.remove(), 1000);
+        });
+    }
 });
-
-
-
 
 //------------------------- countries selection
 document.addEventListener("DOMContentLoaded", () => {
-  const list = document.getElementById("countryList");
+    const list = document.getElementById("countryList");
+    if (!list) return;
 
-  fetch("https://restcountries.com/v3.1/all")
-    .then(res => res.json())
-    .then(data => {
-      const countries = data
-        .map(c => c.name.common)
-        .sort();
+    fetch("https://restcountries.com/v3.1/all")
+        .then(res => res.json())
+        .then(data => {
+            const countries = data
+                .map(c => c.name.common)
+                .sort();
 
-      countries.forEach(country => {
-        const option = document.createElement("option");
-        option.value = country;
-        list.appendChild(option);
-      });
-    })
-    .catch(err => console.error(err));
+            countries.forEach(country => {
+                const option = document.createElement("option");
+                option.value = country;
+                list.appendChild(option);
+            });
+        })
+        .catch(err => console.error(err));
 });
