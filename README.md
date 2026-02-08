@@ -3,7 +3,7 @@
 </h2>
 
 <div align="center">
-  <a href="https://imsauce.github.io/Sauce/home.html" target="_blank">
+  <a href="https://imsauce.github.io/Registration_Form/" target="_blank">
     <img src="images/icon.png" alt="Yumi" width="200"/>
   </a>
 </div>
